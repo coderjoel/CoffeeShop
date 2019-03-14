@@ -19,13 +19,6 @@ namespace CoffeeShopClassLibrary
         public String PostalCode { get => _PostalCode; set => _PostalCode = value; }
         public static Address SHOP_ADDRESS { get; set; }
 
-        /*public Address(String street, String city, String province, String postalcode)
-        {
-            _Street = street;
-            _City = city;
-            _Province = province;
-            _PostalCode = postalcode;
-        }*/
         public Address(Address addr)
         {
             _Street = addr.Street;

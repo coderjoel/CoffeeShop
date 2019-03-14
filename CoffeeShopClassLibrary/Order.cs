@@ -91,7 +91,7 @@ namespace CoffeeShopClassLibrary
         public Order()
         {
             this._OrderId = generateOrderrId();
-            this._CurrentCustomer = customer;
+            this._CurrentCustomer = new Customer();
             this._DeliveryAddress = new Address();
             this._Cost = 0;
             this.numberOfItems = 0;
@@ -124,7 +124,7 @@ namespace CoffeeShopClassLibrary
             return string.Format("Orders:\n Order Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
                 "Delivery Address: {4}, {5}, {6} {7}\nItems: {8}\n", OrderId, _CurrentCustomer.Name ,
                                OrderTime, Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,
-                               _DeliveryAddress.PostalCode, Items);
+                               _DeliveryAddress.PostalCode, temp);
         }
     }
 }
