@@ -13,18 +13,18 @@ namespace CoffeeShopClassLibrary
     public class CustomerRepository
     {
 
-        private Customer[] _Customers;
-        public Customer[] Customers { get=>_Customers; }
+        private Customer _Customers;
+        public Customer Customers { get=>_Customers; set=>_Customers=value; }
 
         public void Add(Customer customer)
         {
             var repcustomer = new ArrayList(); 
-            repcustomer.Add(Customers);
+            repcustomer.Add(customer);
         }
 
         public CustomerRepository()
         {
-
+            this._Customers = Customers;
         }
 
         public void Save(string filepath)

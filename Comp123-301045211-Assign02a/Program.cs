@@ -114,10 +114,10 @@ namespace CoffeShop
             repository.Save("Customers.json");
 
             repository.Load("Customers.json");
-            /*foreach (Customer customer in repository.Customers)
+            foreach (Customer customer in repository.Customers)
             {
                 Console.WriteLine(customer.GetInfo());
-            }*/
+            }
             Console.ReadKey();
             
         }

@@ -17,7 +17,7 @@ namespace CoffeeShopClassLibrary
         public String Province { get => _Province; set => _Province = value; }
         private String _PostalCode;
         public String PostalCode { get => _PostalCode; set => _PostalCode = value; }
-        public static Address SHOP_ADDRESS { get; set; }
+        public static Address SHOP_ADDRESS{ get; set; }
 
         public Address(Address addr)
         {
@@ -113,7 +113,7 @@ namespace CoffeeShopClassLibrary
                     }
                 }
             }
-            return String.Format("Customer Id: {0}\nCustomer Name: {1}\nMobile Number: {2}\nAddress: {3}, {4}, {5} {6}\n{7}\n",
+            return String.Format("\nCustomer Id: {0}\nCustomer Name: {1}\nMobile Number: {2}\nAddress: {3}, {4}, {5} {6}\n{7}\n",
                 IdNumber, Name, TelNo, _Address.Street, _Address.City, _Address.Province, _Address.PostalCode, temp);
 
         }

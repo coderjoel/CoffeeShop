@@ -34,28 +34,28 @@ namespace CoffeeShopClassLibrary
         {
             get
             {
-                return _CurrentCustomer;
+                return this._CurrentCustomer;
             }
             set
             {
-                bool check = GetType().GetProperties().Any(p => p.GetValue(this, null) != null);
-                if (check != true)
-                   Console.WriteLine("Something went wrong! Customer cannot be changed once assigned.");
-                _CurrentCustomer = value;
+                if (this._CurrentCustomer == null)
+                    _CurrentCustomer = value;
+                else
+                    Console.WriteLine("Something went wrong! Customer cannot be changed once assigned.");
             }
 
         }
         private DateTime _OrderTime;
-        public DateTime OrderTime { get; set; }
+        public DateTime OrderTime { get; }
 
         private DateTime _DeliveryTime;
         public DateTime DeliveryTime { get => _DeliveryTime; }
 
         private decimal _Cost;
-        public decimal Cost { get; set; }
+        public decimal Cost { get=>_Cost;}
 
         private Type _OrderType;
-        public Type OrderType { get; set; }
+        public Type OrderType { get=> _OrderType;}
 
         private OrderItem[] _Items;
         public OrderItem[] Items { get => _Items; }
@@ -63,49 +63,58 @@ namespace CoffeeShopClassLibrary
         private bool _Delivered;
         public bool Delivered { get => _Delivered; }
 
+        private String _Status;
+        public String Status { get => _Status; }
+
         private Address _DeliveryAddress;
         public Address DeliveryAddress { get => _DeliveryAddress; set => _DeliveryAddress = value; }
         public Customer Customer { get; set; }
 
         int numberOfItems;
-        Random random = new Random();
+        
 
         public void Deliver()
         {
-            this._Delivered = true;
-            this._DeliveryTime = DateTime.Now;
+                this._Delivered = true;
         }
 
         public Order(Customer customer, Address addr)
         {
             this._OrderId = generateOrderrId();
             this._CurrentCustomer = customer;
+            if (_CurrentCustomer.Name == "Coffee and sendwiches")
+                this._OrderType = Type.RestaurantOrder;
+            else
+                this._OrderType = Type.PhoneOrder;
             this._DeliveryAddress = new Address(addr);
             this._Cost = 0;
             this.numberOfItems= 0;
             this._Items = new OrderItem[25];
             this._OrderTime = DateTime.Now;
             this._Delivered = false;
+            this._Status="Not Delievered";
         }
 
         public Order()
         {
             this._OrderId = generateOrderrId();
             this._CurrentCustomer = new Customer();
-            this._DeliveryAddress = new Address();
+            this._DeliveryAddress = Address.SHOP_ADDRESS;
             this._Cost = 0;
             this.numberOfItems = 0;
             this._Items = new OrderItem[25];
-            this._OrderTime = DateTime.Now;
+            this._OrderTime = DateTime.Now; 
             this._Delivered = false;
+            this._Status = "Not Delievered";
+            this._OrderType = Type.RestaurantOrder;
         }
 
         public void AddOrderItem(MenuItem item)
         {
             OrderItem oi = new OrderItem(item);
             _Items[numberOfItems] = oi;
-            //_Items[numberOfItems] = new OrderItem(item);
             numberOfItems ++;
+            _Cost = _Cost + (item.BaseCost);
         }
 
         public String GetInfo()
@@ -121,10 +130,14 @@ namespace CoffeeShopClassLibrary
                     }
                 }
             }
-            return string.Format("Orders:\n Order Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
-                "Delivery Address: {4}, {5}, {6} {7}\nItems: {8}\n", OrderId, _CurrentCustomer.Name ,
-                               OrderTime, Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,
-                               _DeliveryAddress.PostalCode, temp);
+            if (this._Delivered == true)
+            { this._Status = "Delievery time = " + DateTime.Now.ToString("hh:mm tt"); }
+            else
+            { this._Status ="Not Delievered"; }
+            return string.Format("\nOrders:\nOrder Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
+                "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, _CurrentCustomer.Name ,
+                               OrderTime, _Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,
+                               _DeliveryAddress.PostalCode,_Status, temp);
         }
     }
 }
