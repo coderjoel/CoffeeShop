@@ -1,0 +1,333 @@
+--------------CUSTOMERS-------------
+Customer: Id:2, Name:Jon Smith, 
+	Address: Address: 35 Elm St, Toronto, ON M2M 2K5, Phone: 4161234567
+    Orders:
+
+Customer: Id:3, Name:Ann Brown, 
+	Address: Address: 35 Queen St, Toronto, ON M2T 1M1, Phone: 0
+    Orders:
+
+Customer: Id:4, Name:John Dow, 
+	Address: Address: , Toronto, ON , Phone: 0
+    Orders:
+
+Customer: Id:1, Name:Coffee and sendwiches, 
+	Address: Address: 1 King St, Toronto, ON M1M 1M1, Phone: 0
+    Orders:
+
+--------------Menu Items-------------
+Menu item: Name: Coffee
+	Description: Black coffee
+	Base cost: 2
+Menu item: Name: Coffee with suggar
+	Description: Coffee with singe suger
+	Base cost: 2.05
+Menu item: Name: Coffee double suger
+	Description: Coffee with two sugers
+	Base cost: 2.10
+Menu item: Name: Coffee with milk
+	Description: Coffee with one milk
+	Base cost: 2.10
+Menu item: Name: Coffee double milk
+	Description: Coffee with two milks
+	Base cost: 2.20
+Menu item: Name: Coffee suger and milk 
+	Description: Coffee with single sugers and single milk
+	Base cost: 2.15
+Menu item: Name: Coffee double double
+	Description: Coffee with two sugers and two milks
+	Base cost: 2.30
+Menu item: Name: Sendwitch with bacon
+	Description: White bread sendwitch with bacon
+	Base cost: 5
+Menu item: Name: Sendwitch with rosted beef
+	Description: White bread sendwitch with rosted beef
+	Base cost: 5.50
+Menu item: Name: Sendwitch with egg salad
+	Description: White bread sendwitch with egg salad
+	Base cost: 4
+Something went wrong! Customer cannot be changed once assigned.
+--------------Customer with empty orders-------------
+Customer: Id:2, Name:Jon Smith, 
+	Address: Address: 35 Elm St, Toronto, ON M2M 2K5, Phone: 4161234567
+    Orders:
+	Order: Id:8
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $0.00
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Not delivered
+		Items:
+
+	Order: Id:5
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $0.00
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Not delivered
+		Items:
+
+
+Customer: Id:3, Name:Ann Brown, 
+	Address: Address: 35 Queen St, Toronto, ON M2T 1M1, Phone: 0
+    Orders:
+	Order: Id:6
+	Customer name: Ann Brown
+	Order time: 12:45 AM
+	Cost: $0.00
+	Delivery address: Address: 35 Queen St, Toronto, ON M2T 1M1
+	Not delivered
+		Items:
+
+
+Customer: Id:4, Name:John Dow, 
+	Address: Address: , Toronto, ON , Phone: 0
+    Orders:
+	Order: Id:7
+	Customer name: John Dow
+	Order time: 12:45 AM
+	Cost: $0.00
+	Delivery address: Address: , Toronto, ON 
+	Not delivered
+		Items:
+
+
+Customer: Id:1, Name:Coffee and sendwiches, 
+	Address: Address: 1 King St, Toronto, ON M1M 1M1, Phone: 0
+    Orders:
+
+--------------Customer with  non empty orders-------------
+Customer: Id:2, Name:Jon Smith, 
+	Address: Address: 35 Elm St, Toronto, ON M2M 2K5, Phone: 4161234567
+    Orders:
+	Order: Id:8
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $7.30
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Not delivered
+		Items:
+		Coffee double double - $2.30
+		Sendwitch with bacon - $5.00
+
+	Order: Id:5
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $8.25
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Not delivered
+		Items:
+		Coffee - $2.00
+		Coffee with suggar - $2.05
+		Coffee double suger - $2.10
+		Coffee double suger - $2.10
+
+
+Customer: Id:3, Name:Ann Brown, 
+	Address: Address: 35 Queen St, Toronto, ON M2T 1M1, Phone: 0
+    Orders:
+	Order: Id:6
+	Customer name: Ann Brown
+	Order time: 12:45 AM
+	Cost: $4.20
+	Delivery address: Address: 35 Queen St, Toronto, ON M2T 1M1
+	Not delivered
+		Items:
+		Coffee with milk - $2.10
+		Coffee with milk - $2.10
+
+
+Customer: Id:4, Name:John Dow, 
+	Address: Address: , Toronto, ON , Phone: 0
+    Orders:
+	Order: Id:7
+	Customer name: John Dow
+	Order time: 12:45 AM
+	Cost: $6.50
+	Delivery address: Address: , Toronto, ON 
+	Not delivered
+		Items:
+		Coffee double milk - $2.20
+		Coffee suger and milk  - $2.15
+		Coffee suger and milk  - $2.15
+
+
+Customer: Id:1, Name:Coffee and sendwiches, 
+	Address: Address: 1 King St, Toronto, ON M1M 1M1, Phone: 0
+    Orders:
+	Order: Id:9
+	Customer name: Coffee and sendwiches
+	Order time: 12:45 AM
+	Cost: $5.00
+	Delivery address: Address: 1 King St, Toronto, ON M1M 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Sendwitch with bacon - $5.00
+
+	Order: Id:10
+	Customer name: Coffee and sendwiches
+	Order time: 12:45 AM
+	Cost: $9.50
+	Delivery address: Address: 1 King St, Toronto, ON M1M 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Sendwitch with rosted beef - $5.50
+		Sendwitch with egg salad - $4.00
+
+
+--------------Customer with all orders delivered-------------
+Customer: Id:2, Name:Jon Smith, 
+	Address: Address: 35 Elm St, Toronto, ON M2M 2K5, Phone: 4161234567
+    Orders:
+	Order: Id:8
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $7.30
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee double double - $2.30
+		Sendwitch with bacon - $5.00
+
+	Order: Id:5
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $8.25
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee - $2.00
+		Coffee with suggar - $2.05
+		Coffee double suger - $2.10
+		Coffee double suger - $2.10
+
+
+Customer: Id:3, Name:Ann Brown, 
+	Address: Address: 35 Queen St, Toronto, ON M2T 1M1, Phone: 0
+    Orders:
+	Order: Id:6
+	Customer name: Ann Brown
+	Order time: 12:45 AM
+	Cost: $4.20
+	Delivery address: Address: 35 Queen St, Toronto, ON M2T 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee with milk - $2.10
+		Coffee with milk - $2.10
+
+
+Customer: Id:4, Name:John Dow, 
+	Address: Address: , Toronto, ON , Phone: 0
+    Orders:
+	Order: Id:7
+	Customer name: John Dow
+	Order time: 12:45 AM
+	Cost: $6.50
+	Delivery address: Address: , Toronto, ON 
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee double milk - $2.20
+		Coffee suger and milk  - $2.15
+		Coffee suger and milk  - $2.15
+
+
+Customer: Id:1, Name:Coffee and sendwiches, 
+	Address: Address: 1 King St, Toronto, ON M1M 1M1, Phone: 0
+    Orders:
+	Order: Id:9
+	Customer name: Coffee and sendwiches
+	Order time: 12:45 AM
+	Cost: $5.00
+	Delivery address: Address: 1 King St, Toronto, ON M1M 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Sendwitch with bacon - $5.00
+
+	Order: Id:10
+	Customer name: Coffee and sendwiches
+	Order time: 12:45 AM
+	Cost: $9.50
+	Delivery address: Address: 1 King St, Toronto, ON M1M 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Sendwitch with rosted beef - $5.50
+		Sendwitch with egg salad - $4.00
+
+
+--------------Saving then loading and displauing content-------------
+Customer: Id:2, Name:Jon Smith, 
+	Address: Address: 35 Elm St, Toronto, ON M2M 2K5, Phone: 4161234567
+    Orders:
+	Order: Id:8
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $7.30
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee double double - $2.30
+		Sendwitch with bacon - $5.00
+
+	Order: Id:5
+	Customer name: Jon Smith
+	Order time: 12:45 AM
+	Cost: $8.25
+	Delivery address: Address: 35 Elm St, Toronto, ON M2M 2K5
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee - $2.00
+		Coffee with suggar - $2.05
+		Coffee double suger - $2.10
+		Coffee double suger - $2.10
+
+
+Customer: Id:3, Name:Ann Brown, 
+	Address: Address: 35 Queen St, Toronto, ON M2T 1M1, Phone: 0
+    Orders:
+	Order: Id:6
+	Customer name: Ann Brown
+	Order time: 12:45 AM
+	Cost: $4.20
+	Delivery address: Address: 35 Queen St, Toronto, ON M2T 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee with milk - $2.10
+		Coffee with milk - $2.10
+
+
+Customer: Id:4, Name:John Dow, 
+	Address: Address: , Toronto, ON , Phone: 0
+    Orders:
+	Order: Id:7
+	Customer name: John Dow
+	Order time: 12:45 AM
+	Cost: $6.50
+	Delivery address: Address: , Toronto, ON 
+	Dilivery time: 12:45 AM
+		Items:
+		Coffee double milk - $2.20
+		Coffee suger and milk  - $2.15
+		Coffee suger and milk  - $2.15
+
+
+Customer: Id:1, Name:Coffee and sendwiches, 
+	Address: Address: 1 King St, Toronto, ON M1M 1M1, Phone: 0
+    Orders:
+	Order: Id:9
+	Customer name: Coffee and sendwiches
+	Order time: 12:45 AM
+	Cost: $5.00
+	Delivery address: Address: 1 King St, Toronto, ON M1M 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Sendwitch with bacon - $5.00
+
+	Order: Id:10
+	Customer name: Coffee and sendwiches
+	Order time: 12:45 AM
+	Cost: $9.50
+	Delivery address: Address: 1 King St, Toronto, ON M1M 1M1
+	Dilivery time: 12:45 AM
+		Items:
+		Sendwitch with rosted beef - $5.50
+		Sendwitch with egg salad - $4.00
