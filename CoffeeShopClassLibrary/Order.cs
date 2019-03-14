@@ -90,7 +90,14 @@ namespace CoffeeShopClassLibrary
 
         public Order()
         {
-
+            this._OrderId = generateOrderrId();
+            this._CurrentCustomer = customer;
+            this._DeliveryAddress = new Address();
+            this._Cost = 0;
+            this.numberOfItems = 0;
+            this._Items = new OrderItem[25];
+            this._OrderTime = DateTime.Now;
+            this._Delivered = false;
         }
 
         public void AddOrderItem(MenuItem item)

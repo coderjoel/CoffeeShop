@@ -45,8 +45,8 @@ namespace CoffeeShopClassLibrary
         public String Name { get => _Name; set => _Name = value; }
         
 
-        private Address _Customer_Address;
-        public Address Customer_Address { get=> _Customer_Address; set=> _Customer_Address = value;}
+        private Address _Address;
+        public Address Address { get=> _Address; set=> _Address = value;}
 
         public Int64 _TelNo;
         public Int64 TelNo { get=>_TelNo;
@@ -82,11 +82,11 @@ namespace CoffeeShopClassLibrary
 
         public Customer(string name, Int64 number, Address address)
         {
-            _Name = name;
-            _TelNo = number;
-            _Customer_Address = new Address(address);
-            _IdNumber = generateCustomerId();
-            _Orders = new Order[50];
+            this._Name = name;
+            this._TelNo = number;
+            this._Address = new Address(address);
+            this._IdNumber = generateCustomerId();
+            this._Orders = new Order[50];
         }
 
         public Order CreatePhoneOrder(Address addr)
@@ -95,7 +95,6 @@ namespace CoffeeShopClassLibrary
 
             _Orders[numberOfOrders] = _CurrentOrder;
             numberOfOrders++;
-            //   _OrderInProcess = null;
             return this._CurrentOrder;
 
         }
@@ -122,41 +121,15 @@ namespace CoffeeShopClassLibrary
                 }
             }
             return String.Format("Customer Id: {0}\nCustomer Name: {1}\nMobile Number: {2}\nAddress: {3}, {4}, {5} {6}\n{7}\n",
-                IdNumber, Name, TelNo, _Customer_Address.Street, _Customer_Address.City, _Customer_Address.Province, _Customer_Address.PostalCode, temp);
+                IdNumber, Name, TelNo, _Address.Street, _Address.City, _Address.Province, _Address.PostalCode, temp);
 
         }
-
-        /*public Order CreatePhoneOrder(string address, string city, string province, string postalCode, Type type)
-        {
-            this.currentOrder = new Order(this, address, city, province, postalCode, type);
-            return this.currentOrder;
-        }
-
-        public Order CreatePhoneOrder(Type type)
-        {
-            this.currentOrder = new Order(this, type);
-            return this.currentOrder;
-        }
-
-        public Order CreatePhoneOrder(Address address)
-        {
-            this.currentOrder = new Order(this, address);
-            return this.currentOrder;
-        }*/
 
         public Customer()
         {
-
-        }
-
-        /*public Customer(string name, Int64 number, string address, string city, string province, string postalCode, string country)
-        {
-            _Name = name;
-            _TelNo = number;
-            customerAddress = new Address(address, city, province, postalCode);
-            _IdNumber = generateCustomerId();
-            _Orders = new Order[50];
-            numberOfOrders = 0;
-        }*/        
+            this._IdNumber = generateCustomerId();
+            this._Address = new Address();
+            this._Orders = new Order[50];
+        }   
     }
 }

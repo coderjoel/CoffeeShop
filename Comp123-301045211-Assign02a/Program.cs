@@ -57,8 +57,8 @@ namespace CoffeShop
             order4.Customer = customer1;
 
 
-            //Order order5 = new Order();
-            //Order order6 = new Order();
+            Order order5 = new Order();
+            Order order6 = new Order();
 
 
 
@@ -84,13 +84,13 @@ namespace CoffeShop
             order4.AddOrderItem(menuItems[6]);
             order4.AddOrderItem(menuItems[7]);
 
-            /*order5.AddOrderItem(menuItems[7]);
+            order5.AddOrderItem(menuItems[7]);
 
             order6.AddOrderItem(menuItems[8]);
             order6.AddOrderItem(menuItems[9]);
 
             internalCustomer.AddOrder(order5);
-            internalCustomer.AddOrder(order6);*/
+            internalCustomer.AddOrder(order6);
 
             titleMeessage("Customer with  non empty orders");
             Console.WriteLine(customer1.GetInfo());
@@ -114,10 +114,10 @@ namespace CoffeShop
             repository.Save("Customers.json");
 
             repository.Load("Customers.json");
-            /*foreach (Customer customer in repository.Customers)
+            foreach (Customer customer in repository.Customers)
             {
                 Console.WriteLine(customer.GetInfo());
-            }*/
+            }
             Console.ReadKey();
             
         }
@@ -148,10 +148,10 @@ namespace CoffeShop
         private static void setCustomers(out Customer customer1, out Customer customer2, out Customer customer3,
                                         Address a1, Address a2, Address a3)
         {
-            /*customer1 = new Customer();
+            customer1 = new Customer();
             customer1.Address = a1;
             customer1.Name = "Jon Smith";
-            customer1.TelNo = 4161234567;*/
+            customer1.TelNo = 4161234567;
 
             customer1 = new Customer("Jon Smith", 4161234567, a1);
             customer2 = new Customer("Ann Brown", 4169876543, a2);
