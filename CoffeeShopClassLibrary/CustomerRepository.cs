@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Text;
@@ -7,36 +7,62 @@ using Newtonsoft.Json;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace CoffeeShopClassLibrary
 {
     public class CustomerRepository
     {
 
-        private Customer _Customers;
-        public Customer Customers { get=>_Customers; set=>_Customers=value; }
+        //private List<Customer> _Customers = new List<Customer>();
+        //public List<Customer> Customers { get=>_Customers; }
+
+        private ArrayList _Customers; public ArrayList Customers { get => _Customers; set => _Customers = value; }
 
         public void Add(Customer customer)
         {
-            var repcustomer = new ArrayList(); 
-            repcustomer.Add(customer);
+            this.Customers.Add(customer);
         }
 
         public CustomerRepository()
         {
-            this._Customers = Customers;
+            //this._Customers = Customers;
+            this._Customers = new ArrayList();
         }
 
-        public void Save(string filepath)
+        public void Save(String filepath)
         {
-            // serialize JSON to a string and then write string to a file
-            File.WriteAllText(filepath, JsonConvert.SerializeObject(Customers));
+            try
+            {
+                // serialize JSON to a string and then write string to a file
+                File.WriteAllText(filepath, JsonConvert.SerializeObject(Customers));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                Console.WriteLine("Circular refrence Exception");
+            }
         }
 
-        public void Load(string filepath)
+        public void Load(String filepath)
         {
             // read file into a string and deserialize JSON to a type
-            Customer customer= JsonConvert.DeserializeObject<Customer>(File.ReadAllText(filepath));
+            var _Customers = JsonConvert.DeserializeObject<List<Customer>>(File.ReadAllText(filepath));
+
+            foreach (Customer customer in _Customers)
+            {
+                if(customer!=null)
+                {
+                    foreach(Order order in customer.Orders)
+                    {
+                        if(order!=null)
+                        {
+                            order.Customer = customer;
+                        }
+                    }
+                }
+            }
+
         }
 
     }
