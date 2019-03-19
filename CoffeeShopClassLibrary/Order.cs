@@ -30,18 +30,18 @@ namespace CoffeeShopClassLibrary
 
         }
         [JsonIgnore]
-        private Customer _CurrentCustomer;
+        private Customer _Customer;
         [JsonIgnore]
-        public Customer CurrentCustomer
+        public Customer Customer
         {
             get
             {
-                return this._CurrentCustomer;
+                return this._Customer;
             }
             set
             {
-                if (this._CurrentCustomer == null)
-                    _CurrentCustomer = value;
+                if (Customer == null)
+                    _Customer = value;
                 else
                     Console.WriteLine("Something went wrong! Customer cannot be changed once assigned.");
             }
@@ -71,8 +71,8 @@ namespace CoffeeShopClassLibrary
 
         private Address _DeliveryAddress;
         public Address DeliveryAddress { get => _DeliveryAddress; set => _DeliveryAddress = value; }
-        [JsonIgnore]
-        public Customer Customer { get; set; }
+        
+        
         int numberOfItems;
         
 
@@ -84,8 +84,8 @@ namespace CoffeeShopClassLibrary
         public Order(Customer customer, Address addr)
         {
             this._OrderId = generateOrderrId();
-            this._CurrentCustomer = customer;
-            if (_CurrentCustomer.Name == "Coffee and sendwiches")
+            this._Customer = customer;
+            if (_Customer.Name == "Coffee and sendwiches")
                 this._OrderType = Type.RestaurantOrder;
             else
                 this._OrderType = Type.PhoneOrder;
@@ -101,7 +101,7 @@ namespace CoffeeShopClassLibrary
         public Order()
         {
             this._OrderId = generateOrderrId();
-            this._CurrentCustomer = new Customer();
+            this._Customer = new Customer();
             this._DeliveryAddress = Address.SHOP_ADDRESS;
             this._Cost = 0;
             this.numberOfItems = 0;
@@ -138,7 +138,7 @@ namespace CoffeeShopClassLibrary
             else
             { this._Status ="Not Delievered"; }
             return string.Format("\nOrders:\nOrder Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
-                "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, _CurrentCustomer.Name ,
+                "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, _Customer.Name ,
                                OrderTime, _Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,
                                _DeliveryAddress.PostalCode,_Status, temp);
         }
