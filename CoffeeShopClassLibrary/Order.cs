@@ -1,4 +1,5 @@
-﻿using System;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -28,8 +29,9 @@ namespace CoffeeShopClassLibrary
             return (int)random;
 
         }
-
+        [JsonIgnore]
         private Customer _CurrentCustomer;
+        [JsonIgnore]
         public Customer CurrentCustomer
         {
             get
@@ -45,6 +47,7 @@ namespace CoffeeShopClassLibrary
             }
 
         }
+    
         private DateTime _OrderTime;
         public DateTime OrderTime { get; }
 
@@ -68,8 +71,8 @@ namespace CoffeeShopClassLibrary
 
         private Address _DeliveryAddress;
         public Address DeliveryAddress { get => _DeliveryAddress; set => _DeliveryAddress = value; }
+        [JsonIgnore]
         public Customer Customer { get; set; }
-
         int numberOfItems;
         
 
