@@ -8,8 +8,8 @@ namespace CoffeeShopClassLibrary
 {
     public class MenuItem
     {
-        private String _Name;
-        public String Name { get=>_Name; set=>_Name=value; }
+        //private String _Name;
+        //public String Name { get=>_Name; set=>_Name=value; }
 
         private String _Description;
         public String Description { get=>_Description; set=>_Description=value; }
@@ -19,7 +19,7 @@ namespace CoffeeShopClassLibrary
 
         public MenuItem(string name, string description, decimal cost)
         {
-            this._Name = name;
+            //this._Name = name;
             this._Description = description;
             this._BaseCost = cost;
         }
@@ -28,9 +28,10 @@ namespace CoffeeShopClassLibrary
 
         }
 
-        public string GetInfo()
+        public virtual string GetInfo()
         {
-            return "\nMenu Item\nName :" + _Name + "\nDescription :" + _Description+ "\nBase cost :$" + _BaseCost;
+            //return "\nMenu Item\nName :" + _Name + "\nDescription :" + _Description+ "\nBase cost :$" + _BaseCost;
+            return "\nMenu Item\nName : + "\nDescription :" + _Description + "\nBase cost :$" + _BaseCost;
         }
 
     }

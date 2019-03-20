@@ -46,11 +46,11 @@ namespace CoffeeShopClassLibrary
 
             set
             {
-                if (value.ToString().Length < 10 || value.ToString().Length > 10)
+                /*if (value.ToString().Length < 10 || value.ToString().Length > 10)
                 {
                     throw new Exception("Telephone No cannot be more than 10 digits");
 
-                }
+                }*/
 
                 _TelNo = value;
             }
