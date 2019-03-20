@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoffeeShopClassLibrary.MenuItems;
 
 namespace CoffeShop
 {
@@ -124,10 +125,12 @@ namespace CoffeShop
 
         private static void setMenuItems(MenuItem[] menuItems)
         {
-            menuItems[0] = new MenuItem();
+            menuItems[0] = new Coffee();
+
+            /*menuItems[0] = new MenuItem();
             menuItems[0].Name = "Coffee";
             menuItems[0].Description = "Black coffee";
-            menuItems[0].BaseCost = 2M;
+            menuItems[0].BaseCost = 2M;*/
 
             menuItems[1] = new MenuItem("Coffee with suggar", "Coffee with singe suger", 2.05M);
             menuItems[2] = new MenuItem("Coffee double suger", "Coffee with two sugers", 2.10M);

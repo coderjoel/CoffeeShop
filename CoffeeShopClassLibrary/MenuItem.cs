@@ -31,7 +31,7 @@ namespace CoffeeShopClassLibrary
         public virtual string GetInfo()
         {
             //return "\nMenu Item\nName :" + _Name + "\nDescription :" + _Description+ "\nBase cost :$" + _BaseCost;
-            return "\nMenu Item\nName : + "\nDescription :" + _Description + "\nBase cost :$" + _BaseCost;
+            return "\nMenu Item\nName :   \nDescription :" + _Description + " BaseCost :$" + _BaseCost;
         }
 
     }

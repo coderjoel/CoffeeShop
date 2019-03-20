@@ -18,7 +18,7 @@ namespace CoffeeShopClassLibrary
 
         public String GetInfo()
         {
-            return string.Format("Name: {0}\nDescription: {1}\nCost: {2}\n", _MenuItem.Name, _MenuItem.Description, _MenuItem.BaseCost);
+            return string.Format("Name: {0}\nDescription: {1}\nCost: \n", /*_MenuItem.Name,*/ _MenuItem.Description, _MenuItem.BaseCost);
         }
     }
 }

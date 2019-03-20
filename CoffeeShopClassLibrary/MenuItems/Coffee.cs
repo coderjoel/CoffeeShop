@@ -9,15 +9,15 @@ namespace CoffeeShopClassLibrary.MenuItems
     public class Coffee : MenuItem
     {
         private String _Description;
-        public String Description { get => _Description; set => _Description = value; }
+        public new String Description { get => _Description; set => _Description = value; }
 
         private decimal _BaseCost;
-        public decimal BaseCost { get => _BaseCost; set => _BaseCost = value; }
+        public new decimal BaseCost { get => _BaseCost; set => _BaseCost = value; }
 
-        public Coffee(string description, decimal cost)
+        public Coffee()
         {
-            this._Description = description;
-            this._BaseCost = cost;
+            this._Description = "Black Coffee";
+            this._BaseCost =2M;
         }
 
         public override string GetInfo()
