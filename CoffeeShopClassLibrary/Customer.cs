@@ -17,7 +17,7 @@ namespace CoffeeShopClassLibrary
         public String Province { get => _Province; set => _Province = value; }
         private String _PostalCode;
         public String PostalCode { get => _PostalCode; set => _PostalCode = value; }
-        public static Address SHOP_ADDRESS{ get; set; }
+        public static Address SHOP_ADDRESS = new Address { Street = "1 King St", City = "Toronto", Province = "ON", PostalCode = "M1M 1M1" };
 
         public Address(Address addr)
         {
@@ -41,8 +41,8 @@ namespace CoffeeShopClassLibrary
         private Address _Address;
         public Address Address { get=> _Address; set=> _Address = value;}
 
-        public Int64 _TelNo;
-        public Int64 TelNo { get=>_TelNo;
+        public Int64 _Phone;
+        public Int64 Phone { get=>_Phone;
 
             set
             {
@@ -52,7 +52,7 @@ namespace CoffeeShopClassLibrary
 
                 }*/
 
-                _TelNo = value;
+                _Phone = value;
             }
         }
 
@@ -73,10 +73,18 @@ namespace CoffeeShopClassLibrary
 
         int numberOfOrders;
 
+        public Customer()
+        {
+            _IdNumber = generateCustomerId();
+            _Address = new Address();
+            _Orders = new Order[50];
+
+        }
+
         public Customer(string name, Int64 number, Address address)
         {
             this._Name = name;
-            this._TelNo = number;
+            this._Phone = number;
             this._Address = new Address(address);
             this._IdNumber = generateCustomerId();
             this._Orders = new Order[50];
@@ -99,7 +107,7 @@ namespace CoffeeShopClassLibrary
             return odr;
         }
 
-        public String GetInfo()
+        public String GetOrderInfo()
         {
             String temp = " ";
             if (Orders != null)
@@ -113,16 +121,30 @@ namespace CoffeeShopClassLibrary
                     }
                 }
             }
-            return String.Format("\nCustomer Id: {0}\nCustomer Name: {1}\nMobile Number: {2}\nAddress: {3}, {4}, {5} {6}\n{7}\n",
-                IdNumber, Name, TelNo, _Address.Street, _Address.City, _Address.Province, _Address.PostalCode, temp);
-
+            return temp;
+        }
+        public override string ToString()
+        {
+            return GetInfo();
         }
 
-        public Customer()
+        public String GetInfo()
         {
-            this._IdNumber = generateCustomerId();
-            this._Address = new Address();
-            this._Orders = new Order[50];
-        }   
+           /* String temp = " ";
+            if (Orders != null)
+            {
+
+                foreach (Order orders in Orders)
+                {
+                    if (orders != null)
+                    {
+                        temp += orders.GetInfo();
+                    }
+                }
+            }*/
+            return String.Format("\nCustomer Id: {0}\nCustomer Name: {1}\nMobile Number: {2}\nAddress: {3}, {4}, {5} {6}\n{7}\n",
+                IdNumber, Name, Phone, _Address.Street, _Address.City, _Address.Province, _Address.PostalCode, GetOrderInfo());
+
+        }
     }
 }

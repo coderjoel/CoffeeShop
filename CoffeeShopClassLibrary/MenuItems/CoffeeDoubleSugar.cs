@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeShopClassLibrary.MenuItems
 {
-    class CoffeeDoubleSugar : MenuItem
+    public class CoffeeDoubleSugar : MenuItem
     {
         private String _Description;
         public String Description { get => _Description; set => _Description = value; }
@@ -14,10 +14,10 @@ namespace CoffeeShopClassLibrary.MenuItems
         private decimal _BaseCost;
         public decimal BaseCost { get => _BaseCost; set => _BaseCost = value; }
 
-        public CoffeeDoubleSugar(string description, decimal cost)
+        public CoffeeDoubleSugar()
         {
-            this._Description = description;
-            this._BaseCost = cost;
+            this._Description = "Coffee with two sugers";
+            this._BaseCost = 2.10M;
         }
     }
 }

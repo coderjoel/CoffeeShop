@@ -56,7 +56,7 @@
     <Compile Include="MenuItems\CoffeeWithSugar.cs" />
     <Compile Include="MenuItems\SandwichWithBacon.cs" />
     <Compile Include="MenuItems\SandwichWithEggSalad.cs" />
-    <Compile Include="MenuItems\SandwichWithRoastBeef.cs" />
+    <Compile Include="MenuItems\SandwichWithRoastedBeef.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
