@@ -41,7 +41,7 @@ namespace CoffeeShopClassLibrary
             set
             {
                 if (Customer == null)
-                    _Customer = value;
+                    this._Customer = value;
                 else
                     Console.WriteLine("Something went wrong! Customer cannot be changed once assigned.");
             }
@@ -85,10 +85,7 @@ namespace CoffeeShopClassLibrary
         {
             this._OrderId = generateOrderrId();
             this._Customer = customer;
-            if (_Customer.Name == "Coffee and sendwiches")
-                this._OrderType = Type.RestaurantOrder;
-            else
-                this._OrderType = Type.PhoneOrder;
+            this._OrderType = Type.PhoneOrder;
             this._DeliveryAddress = new Address(addr);
             this._Cost = 0;
             this.numberOfItems= 0;
@@ -102,7 +99,7 @@ namespace CoffeeShopClassLibrary
         {
             this._OrderId = generateOrderrId();
             this._Customer = new Customer();
-            this._DeliveryAddress = Address.SHOP_ADDRESS;
+            this._DeliveryAddress = new Address(Address.SHOP_ADDRESS);
             this._Cost = 0;
             this.numberOfItems = 0;
             this._Items = new OrderItem[25];
@@ -133,35 +130,16 @@ namespace CoffeeShopClassLibrary
                     }
                 }
             }
-            if (this._Delivered == true)
-            { this._Status = "Delievery time = " + DateTime.Now.ToString("hh:mm tt"); }
-            else
-            { this._Status = "Not Delievered"; }
+            
             return temp;
-        }
-
-        public override string ToString()
-        {
-            return GetInfo();
         }
 
         public String GetInfo()
         {
-            /*String temp = " ";
-            if (_Items != null)
-            {
-                foreach (OrderItem odrItem in _Items)
-                {
-                    if (odrItem != null)
-                    {
-                        temp += odrItem.GetInfo();
-                    }
-                }
-            }
             if (this._Delivered == true)
             { this._Status = "Delievery time = " + DateTime.Now.ToString("hh:mm tt"); }
             else
-            { this._Status ="Not Delievered"; }*/
+            { this._Status = "Not Delievered"; }
             return string.Format("\nOrders:\nOrder Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
                 "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, _Customer.Name ,
                                OrderTime, _Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,

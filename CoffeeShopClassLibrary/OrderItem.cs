@@ -13,12 +13,12 @@ namespace CoffeeShopClassLibrary
 
         public OrderItem(MenuItem item)
         {
-            this._MenuItem = item;
+            _MenuItem = item;
         }
 
         public String GetInfo()
         {
-            return string.Format("Name: {0}\nDescription: {1}\nCost: \n", /*_MenuItem.Name,*/ _MenuItem.Description, _MenuItem.BaseCost);
+            return string.Format("\nDescription: {0}\nCost: {1}\n", _MenuItem.Description, _MenuItem.BaseCost);
         }
     }
 }

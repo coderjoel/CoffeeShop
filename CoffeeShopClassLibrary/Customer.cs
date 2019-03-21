@@ -130,18 +130,6 @@ namespace CoffeeShopClassLibrary
 
         public String GetInfo()
         {
-           /* String temp = " ";
-            if (Orders != null)
-            {
-
-                foreach (Order orders in Orders)
-                {
-                    if (orders != null)
-                    {
-                        temp += orders.GetInfo();
-                    }
-                }
-            }*/
             return String.Format("\nCustomer Id: {0}\nCustomer Name: {1}\nMobile Number: {2}\nAddress: {3}, {4}, {5} {6}\n{7}\n",
                 IdNumber, Name, Phone, _Address.Street, _Address.City, _Address.Province, _Address.PostalCode, GetOrderInfo());
 
