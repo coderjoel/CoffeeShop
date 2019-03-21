@@ -120,7 +120,7 @@ namespace CoffeeShopClassLibrary
             _Cost = _Cost + (item.BaseCost);
         }
 
-        public String GetInfo()
+        public String GetOrders()
         {
             String temp = " ";
             if (_Items != null)
@@ -136,11 +136,36 @@ namespace CoffeeShopClassLibrary
             if (this._Delivered == true)
             { this._Status = "Delievery time = " + DateTime.Now.ToString("hh:mm tt"); }
             else
-            { this._Status ="Not Delievered"; }
+            { this._Status = "Not Delievered"; }
+            return temp;
+        }
+
+        public override string ToString()
+        {
+            return GetInfo();
+        }
+
+        public String GetInfo()
+        {
+            /*String temp = " ";
+            if (_Items != null)
+            {
+                foreach (OrderItem odrItem in _Items)
+                {
+                    if (odrItem != null)
+                    {
+                        temp += odrItem.GetInfo();
+                    }
+                }
+            }
+            if (this._Delivered == true)
+            { this._Status = "Delievery time = " + DateTime.Now.ToString("hh:mm tt"); }
+            else
+            { this._Status ="Not Delievered"; }*/
             return string.Format("\nOrders:\nOrder Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
                 "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, _Customer.Name ,
                                OrderTime, _Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,
-                               _DeliveryAddress.PostalCode,_Status, temp);
+                               _DeliveryAddress.PostalCode,_Status, GetOrders());
         }
     }
 }
