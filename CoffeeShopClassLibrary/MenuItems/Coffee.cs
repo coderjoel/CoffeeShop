@@ -11,7 +11,7 @@ namespace CoffeeShopClassLibrary.MenuItems
         
         public Coffee()
         {
-            Description = "Black Coffee";
+            Description = "Original Bland Coffee";
             BaseCost =2M;
         }
     }

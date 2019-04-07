@@ -46,13 +46,7 @@ namespace CoffeeShopClassLibrary
 
             set
             {
-                /*if (value.ToString().Length < 10 || value.ToString().Length > 10)
-                {
-                    throw new Exception("Telephone No cannot be more than 10 digits");
-
-                }*/
-
-                _Phone = value;
+				_Phone = value;
             }
         }
 
@@ -125,7 +119,7 @@ namespace CoffeeShopClassLibrary
         }
         public override string ToString()
         {
-            return GetInfo();
+			return String.Format(this.GetInfo());
         }
 
         public String GetInfo()

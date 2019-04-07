@@ -8,17 +8,17 @@ namespace CoffeeShopClassLibrary
 {
     public class OrderItem
     {
-        private MenuItem _MenuItem;
-        public MenuItem MenuItem{get=> _MenuItem;}
+        private IMenuItem _MenuItem;
+        public IMenuItem MenuItem{get=> _MenuItem; set => _MenuItem = value; }
 
-        public OrderItem(MenuItem item)
+        public OrderItem(IMenuItem MenuItem)
         {
-            _MenuItem = item;
+            _MenuItem = MenuItem;
         }
 
         public String GetInfo()
         {
-            return string.Format("\nDescription: {0}\nCost: {1}\n", _MenuItem.Description, _MenuItem.BaseCost);
+            return string.Format("\nDescription: {0}\nCost: {1}\n", MenuItem.Description, MenuItem.BaseCost);
         }
     }
 }

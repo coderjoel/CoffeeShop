@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace CoffeeShopClassLibrary
 {
-    public class MenuItem
-    {
-
-        private String _Description;
+    public class MenuItem : IMenuItem
+	{
+		[JsonProperty]
+		private String _Description;
         public String Description { get=>_Description; set=>_Description=value; }
-
-        private decimal _BaseCost;
+		[JsonProperty]
+		private decimal _BaseCost;
         public decimal BaseCost { get => _BaseCost; set => _BaseCost = value; }
 
         public MenuItem(String description, decimal cost)
         {
-            //this._Name = name;
             _Description = description;
             _BaseCost = cost;
         }
@@ -31,10 +31,9 @@ namespace CoffeeShopClassLibrary
             return GetInfo();
         }
 
-        public String GetInfo()
+        public virtual string GetInfo()
         {
-            //return "\nMenu Item\nName :" + _Name + "\nDescription :" + _Description+ "\nBase cost :$" + _BaseCost;
-            return "\nMenu Item\nDescription :" + _Description + "\nBaseCost :$" + _BaseCost;
+            return "\nMenu Item\t-Description\t: " + _Description + "\n\t\t-Cost\t\t: $" + _BaseCost;
         }
 
     }

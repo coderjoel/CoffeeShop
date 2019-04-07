@@ -29,7 +29,6 @@ namespace CoffeeShopClassLibrary
             return (int)random;
 
         }
-        [JsonIgnore]
         private Customer _Customer;
         [JsonIgnore]
         public Customer Customer
@@ -40,10 +39,14 @@ namespace CoffeeShopClassLibrary
             }
             set
             {
-                if (Customer == null)
-                    this._Customer = value;
-                else
-                    Console.WriteLine("Something went wrong! Customer cannot be changed once assigned.");
+				if (_Customer == null)
+				{
+					_Customer = value;
+				}
+				else
+				{
+					Console.WriteLine("Something went wrong! Customer cannot be changed once assigned.");
+				}				
             }
 
         }
@@ -109,7 +112,7 @@ namespace CoffeeShopClassLibrary
             this._OrderType = Type.RestaurantOrder;
         }
 
-        public void AddOrderItem(MenuItem item)
+        public void AddOrderItem(IMenuItem item)
         {
             OrderItem oi = new OrderItem(item);
             _Items[numberOfItems] = oi;
@@ -120,9 +123,9 @@ namespace CoffeeShopClassLibrary
         public String GetOrders()
         {
             String temp = " ";
-            if (_Items != null)
+            if (Items != null)
             {
-                foreach (OrderItem odrItem in _Items)
+                foreach (OrderItem odrItem in Items)
                 {
                     if (odrItem != null)
                     {
@@ -134,16 +137,16 @@ namespace CoffeeShopClassLibrary
             return temp;
         }
 
-        public String GetInfo()
+        public string GetInfo()
         {
             if (this._Delivered == true)
             { this._Status = "Delievery time = " + DateTime.Now.ToString("hh:mm tt"); }
             else
             { this._Status = "Not Delievered"; }
             return string.Format("\nOrders:\nOrder Id: {0}\nCustomer Name : {1}\nOrder Time: {2}\nCost : ${3}\n" +
-                "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, _Customer.Name ,
-                               OrderTime, _Cost, _DeliveryAddress.Street, _DeliveryAddress.City,_DeliveryAddress.Province,
-                               _DeliveryAddress.PostalCode,_Status, GetOrders());
+                "Delivery Address: {4}, {5}, {6} {7}\n{8}\nItems: {9}\n", OrderId, Customer.Name ,
+                               OrderTime.ToString("hh:mm tt"), Cost, DeliveryAddress.Street, DeliveryAddress.City,DeliveryAddress.Province,
+                               DeliveryAddress.PostalCode,Status, GetOrders());
         }
     }
 }

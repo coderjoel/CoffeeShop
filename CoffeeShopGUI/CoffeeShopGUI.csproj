@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6E6D3C31-D638-4BC7-A537-A3C8D4D5F5BD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>CoffeShop</RootNamespace>
-    <AssemblyName>CoffeeShop</AssemblyName>
+    <ProjectGuid>{F74CD17E-C39C-4114-A3FF-47FA989C16A7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CoffeeShopGUI</RootNamespace>
+    <AssemblyName>CoffeeShopGUI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,89 +33,80 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\Add.cs">
+    <Compile Include="Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Add.Designer.cs">
+    <Compile Include="Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\AddOrder.cs">
+    <Compile Include="AddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\AddOrder.Designer.cs">
+    <Compile Include="AddOrder.Designer.cs">
       <DependentUpon>AddOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Display.cs">
+    <Compile Include="Display.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Display.Designer.cs">
+    <Compile Include="Display.Designer.cs">
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\DisplayOrder.cs">
+    <Compile Include="DisplayOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\DisplayOrder.Designer.cs">
+    <Compile Include="DisplayOrder.Designer.cs">
       <DependentUpon>DisplayOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Edit.cs">
+    <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Edit.Designer.cs">
-      <DependentUpon>Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Home.Designer.cs">
+    <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CoffeeShopClassLibrary\CoffeeShopClassLibrary.csproj">
-      <Project>{865d740b-bfa5-4c03-a6af-19c36b6066a1}</Project>
-      <Name>CoffeeShopClassLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="GUI\Add.resx">
-      <DependentUpon>Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\AddOrder.resx">
-      <DependentUpon>AddOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Display.resx">
-      <DependentUpon>Display.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\DisplayOrder.resx">
-      <DependentUpon>DisplayOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Edit.resx">
-      <DependentUpon>Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
