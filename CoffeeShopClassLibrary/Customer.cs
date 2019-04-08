@@ -60,7 +60,7 @@ namespace CoffeeShopClassLibrary
         }
 
         private Order[] _Orders;
-        public Order[] Orders { get => _Orders; }
+        public Order[] Orders { get => _Orders; set => _Orders = value; }
 
         private Order _CurrentOrder;
         public Order CurrentOrder {get=> _CurrentOrder;}

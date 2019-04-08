@@ -40,10 +40,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.lblOutput = new System.Windows.Forms.Label();
 			this.btnAdd = new System.Windows.Forms.Button();
-			this.btnBack = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// txtName
@@ -148,25 +145,6 @@
 			this.label6.TabIndex = 11;
 			this.label6.Text = "Phone No.";
 			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(359, 355);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(48, 13);
-			this.label7.TabIndex = 12;
-			this.label7.Text = "Output : ";
-			// 
-			// lblOutput
-			// 
-			this.lblOutput.AutoSize = true;
-			this.lblOutput.Location = new System.Drawing.Point(426, 355);
-			this.lblOutput.Name = "lblOutput";
-			this.lblOutput.Size = new System.Drawing.Size(25, 13);
-			this.lblOutput.TabIndex = 13;
-			this.lblOutput.Text = "___";
-			this.lblOutput.Click += new System.EventHandler(this.lblOutput_Click);
-			// 
 			// btnAdd
 			// 
 			this.btnAdd.Location = new System.Drawing.Point(362, 295);
@@ -177,25 +155,12 @@
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// btnBack
-			// 
-			this.btnBack.Location = new System.Drawing.Point(639, 389);
-			this.btnBack.Name = "btnBack";
-			this.btnBack.Size = new System.Drawing.Size(75, 23);
-			this.btnBack.TabIndex = 15;
-			this.btnBack.Text = "Go Back";
-			this.btnBack.UseVisualStyleBackColor = true;
-			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-			// 
 			// Add
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.btnAdd);
-			this.Controls.Add(this.lblOutput);
-			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
@@ -229,9 +194,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label lblOutput;
 		private System.Windows.Forms.Button btnAdd;
-		private System.Windows.Forms.Button btnBack;
 	}
 }

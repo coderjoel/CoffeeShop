@@ -47,16 +47,19 @@ namespace CoffeeShopClassLibrary
 				file.Close();
 			}
 			//resolving circular reference
-			/*foreach (Customer customer in Customers)
+			foreach (Customer customer in Customers)
 			{
 				if (customer != null)
 				{
 					foreach (Order order in customer.Orders)
 					{
-						order.Customer = customer;
+						if (order != null) {
+							order.Customer = customer;
+						}
+						
 					}
 				}
-			}*/
+			}
 		}
 	}
 }

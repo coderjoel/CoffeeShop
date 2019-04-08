@@ -13,21 +13,16 @@ namespace CoffeeShopClassLibrary
 {
     public class CustomerRepository : RepositoryBase
     {
-		public const string ERROR = "\nError  : Repository cannot contain more than 10 customers\n";
-
 		public override List<Customer> Customers { get; set; }
-
-		private int Index;
 
 		public CustomerRepository()
 		{
-			this.Customers = new List<Customer>();
+			Customers = new List<Customer>();
 		}
 
 		public void Add(Customer customer)
 		{
-				Customers.Add(customer);
-				//Index++;
+			Customers.Add(customer);
 		}
 	}
 }

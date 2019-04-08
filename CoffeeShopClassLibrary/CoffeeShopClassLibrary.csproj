@@ -51,6 +51,7 @@
     <Compile Include="MenuItemAddition.cs" />
     <Compile Include="MenuItems\Coffee.cs" />
     <Compile Include="MenuItems\CoffeeDarkRoast.cs" />
+    <Compile Include="MenuItems\Lettuce.cs" />
     <Compile Include="MenuItems\Milk.cs" />
     <Compile Include="MenuItems\SandwichWithBacon.cs" />
     <Compile Include="MenuItems\SandwichWithEggSalad.cs" />

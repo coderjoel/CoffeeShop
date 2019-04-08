@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoffeeShopClassLibrary.MenuItems;
-//using CoffeeShopClassLibrary.MenuItemsAddition;
 using System.Windows.Forms;
 using CoffeShop.GUI;
 using MenuItem = CoffeeShopClassLibrary.MenuItem;
@@ -16,6 +15,10 @@ namespace CoffeShop
 	{
 		static void Main(string[] args)
 		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new Home());
+
 			#region Customers 
 			CustomerRepository repository = new CustomerRepository();
 			Address address1;
@@ -44,12 +47,12 @@ namespace CoffeShop
 			Console.WriteLine(internalCustomer);
 			#endregion
 
-			List<MenuItem> menuItems = new List<MenuItem>();
+			IMenuItem[] menuItems = new MenuItem[10];
 
 			setMenuItems(menuItems);
 
 			titleMeessage("Menu Items");
-			for (int i = 0; i < menuItems.Count; i++)
+			for (int i = 0; i < menuItems.Length; i++)
 			{
 				Console.WriteLine(menuItems[i]);
 			}
@@ -96,7 +99,6 @@ namespace CoffeShop
 
 			order6.AddOrderItem(menuItems[8]);
 			order6.AddOrderItem(menuItems[9]);
-			order6.AddOrderItem(menuItems[10]);
 
 			internalCustomer.AddOrder(order5);
 			internalCustomer.AddOrder(order6);
@@ -127,22 +129,22 @@ namespace CoffeShop
 			{
 				Console.WriteLine(customer);
 			}
+			Console.ReadKey();
 			#endregion
 		}
 
-		private static void setMenuItems(IList<MenuItem> menuItems)
+		private static void setMenuItems(IMenuItem[] menuItems)
 		{
-			menuItems.Add(new Suggar(new Coffee()));
-			menuItems.Add(new Suggar(new Suggar(new Coffee())));
-			menuItems.Add(new Suggar(new Milk(new Coffee())));
-			menuItems.Add(new Milk(new Coffee()));
-			menuItems.Add(new Milk(new Milk(new CoffeeDarkRoast())));
-			menuItems.Add(new Milk(new Tea()));
-			menuItems.Add(new Milk(new Milk(new Tea())));
-			menuItems.Add(new SandwichWithBacon());
-			menuItems.Add(new SandwichWithRoastedBeef());
-			menuItems.Add(new SandwichWithEggSalad());
-			//menuItems.Add(new Lettuce(new SandwichWithEggSalad()));
+			menuItems[0] = new Suggar(new Coffee());
+			menuItems[1] = new Suggar(new Suggar(new Coffee()));
+			menuItems[2] = new Suggar(new Milk(new Coffee()));
+			menuItems[3] = new Milk(new Coffee());
+			menuItems[4] = new Milk(new Milk(new CoffeeDarkRoast()));
+			menuItems[5] = new Milk(new Tea());
+			menuItems[6] = new Milk(new Milk(new Tea()));
+			menuItems[7] = new SandwichWithBacon();
+			menuItems[8] = new SandwichWithRoastedBeef();
+			menuItems[9] = new SandwichWithEggSalad();
 		}
 
 		private static void titleMeessage(string message)

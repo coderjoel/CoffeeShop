@@ -29,8 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.btnEdit = new System.Windows.Forms.Button();
-			this.lblOutput = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -43,7 +41,6 @@
 			this.txtCity = new System.Windows.Forms.TextBox();
 			this.txtStreet = new System.Windows.Forms.TextBox();
 			this.txtName = new System.Windows.Forms.TextBox();
-			this.btnBack = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnEdit
@@ -55,24 +52,6 @@
 			this.btnEdit.Text = "Edit";
 			this.btnEdit.UseVisualStyleBackColor = true;
 			this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-			// 
-			// lblOutput
-			// 
-			this.lblOutput.AutoSize = true;
-			this.lblOutput.Location = new System.Drawing.Point(463, 342);
-			this.lblOutput.Name = "lblOutput";
-			this.lblOutput.Size = new System.Drawing.Size(25, 13);
-			this.lblOutput.TabIndex = 28;
-			this.lblOutput.Text = "___";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(396, 342);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(48, 13);
-			this.label7.TabIndex = 27;
-			this.label7.Text = "Output : ";
 			// 
 			// label6
 			// 
@@ -170,25 +149,12 @@
 			this.txtName.Size = new System.Drawing.Size(100, 20);
 			this.txtName.TabIndex = 15;
 			// 
-			// btnBack
-			// 
-			this.btnBack.Location = new System.Drawing.Point(643, 393);
-			this.btnBack.Name = "btnBack";
-			this.btnBack.Size = new System.Drawing.Size(75, 23);
-			this.btnBack.TabIndex = 30;
-			this.btnBack.Text = "Go Back";
-			this.btnBack.UseVisualStyleBackColor = true;
-			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-			// 
 			// Edit
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.btnEdit);
-			this.Controls.Add(this.lblOutput);
-			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
@@ -211,8 +177,6 @@
 		#endregion
 
 		private System.Windows.Forms.Button btnEdit;
-		private System.Windows.Forms.Label lblOutput;
-		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
@@ -225,6 +189,5 @@
 		private System.Windows.Forms.TextBox txtCity;
 		private System.Windows.Forms.TextBox txtStreet;
 		private System.Windows.Forms.TextBox txtName;
-		private System.Windows.Forms.Button btnBack;
 	}
 }

@@ -13,23 +13,29 @@ namespace CoffeShop.GUI
 {
 	public partial class Add : Form
 	{
-		public Add()
+		private Home Home;
+
+		public Add(Home form)
 		{
 			InitializeComponent();
+			Home = form;
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			Program prog = new Program();
-			CustomerRepository repo = new CustomerRepository();
+			Customer customerNew = new Customer();
+			customerNew.Name = txtName.Text;
+			customerNew.Phone = Convert.ToInt64(txtPhone.Text);
+			Address addressNew = new Address();
+			addressNew.Street = txtStreet.Text;
+			addressNew.City = txtCity.Text;
+			addressNew.Province = txtProvince.Text;
+			addressNew.PostalCode = txtPostal.Text;
 
-			repo.Add(new Customer()
-			{
-				Name = txtName.Text,
-				Phone = Convert.ToInt32(txtPhone.Text)
-			});
-
-			txtName.Text = txtCity.Text = txtPhone.Text = txtPostal.Text = txtProvince.Text = txtStreet.Text = string.Empty;
+			customerNew.Address = addressNew;
+			Home.repository.Customers.Add(customerNew);
+			Home.PopulateListBox();
+			this.Close();
 		}
 
 		private void btnBack_Click(object sender, EventArgs e)
@@ -70,6 +76,11 @@ namespace CoffeShop.GUI
 		}
 
 		private void lblOutput_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
