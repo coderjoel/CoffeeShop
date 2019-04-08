@@ -13,35 +13,58 @@ namespace CoffeShop.GUI
 {
 	public partial class Edit : Form
 	{
-		private Home Home;
+		Customer editableCustomer;
+		Home home;
 
-		public Edit(Home form)
+		public Edit(Customer customer)
 		{
 			InitializeComponent();
-			Home = form;
-			Customer editableCustomer = new Customer(); 
-			txtName.Text = editableCustomer.Name;
-			txtStreet.Text = editableCustomer.Address.Street;
-			txtCity.Text = editableCustomer.Address.City;
-			txtProvince.Text = editableCustomer.Address.Province;
-			txtPostal.Text = editableCustomer.Address.PostalCode;
-			txtPhone.Text = editableCustomer.Phone.ToString();
+			editableCustomer = customer;
+			Customer selectCustomer;
+			foreach (var cust in home.repository.Customers)
+			{
+				if (editableCustomer == cust.IdNumber)
+				{
+					selectCustomer = cust;
+					txtName.Text = selectCustomer.Name;
+					txtStreet.Text = selectCustomer.Address.Street.ToString();
+					txtCity.Text = selectCustomer.Address.City.ToString();
+					txtProvince.Text = selectCustomer.Address.Province.ToString();
+					txtPostal.Text = selectCustomer.Address.PostalCode.ToString();
+					txtPhone.Text = selectCustomer.Phone.ToString();
+				}
+				else
+				{
+
+				}
+			}
+
+
 		}
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
-			Customer customerEdit = new Customer();
-			customerEdit.Name = txtName.Text;
-			customerEdit.Phone = Convert.ToInt64(txtPhone.Text);
-			Address addressEdit = new Address();
-			addressEdit.Street = txtStreet.Text;
-			addressEdit.City = txtCity.Text;
-			addressEdit.Province = txtProvince.Text;
-			addressEdit.PostalCode = txtPostal.Text;
-			customerEdit.Address = addressEdit;
-			Home.repository.Customers.Add(customerEdit);
-			Home.PopulateListBox();
-			this.Close();
+			/*Home = form;
+			
+			int customerID = ( as Customer).IdNumber;
+			Customer selectedCustomer;
+			foreach (var customer in Home.repository.Customers)
+			{
+				if (customerID == customer.IdNumber)
+				{
+					selectedCustomer = customer;
+					txtName.Text = selectedCustomer.Name;
+					txtPhone.Text = (selectedCustomer.Phone).ToString();
+					txtStreet.Text = selectedCustomer.Address.Street;
+					txtCity.Text = selectedCustomer.Address.City;
+					txtProvince.Text = selectedCustomer.Address.Province;
+					txtPostal.Text = selectedCustomer.Address.PostalCode;
+				}
+				else
+				{
+
+				}
+			}*/
 		}
 	}
 }

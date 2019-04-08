@@ -15,6 +15,8 @@ namespace CoffeShop.GUI
 	{
 		public List<Customer> Customers = new List<Customer>();
 		public CustomerRepository repository = new CustomerRepository();
+		Customer person;
+		String custName;
 
 		public Home()
 		{
@@ -53,22 +55,21 @@ namespace CoffeShop.GUI
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
-			Edit form = new Edit(this);
+			person = Customers.FirstOrDefault(
+				tPerson =>
+					tPerson.IdNumber == (listCustomers.SelectedItem as Customer).IdNumber
+				);
+			Edit form = new Edit(person);
 			form.Show();
 		}
 
 		private void listCustomers_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//(listCustomers.SelectedItem as Customer).Age++;
-
-			var person = Customers.FirstOrDefault(
+			person = Customers.FirstOrDefault(
 				tPerson =>
 					tPerson.Name == (listCustomers.SelectedItem as Customer).Name
 				);
-
-
-			Edit form = new Edit(this);
-			form.Show();
+			custName = person.Name;
 		}
 
 		private void listDisplay_SelectedIndexChanged(object sender, EventArgs e)
