@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CoffeeShopClassLibrary;
 
 namespace CoffeShop.GUI
 {
 	public partial class AddOrder : Form
 	{
+		public CoffeeShopClassLibrary.MenuItem repository = new CoffeeShopClassLibrary.MenuItem();
+
 		public AddOrder()
 		{
 			InitializeComponent();
@@ -37,9 +40,18 @@ namespace CoffeShop.GUI
 
 		}
 
+		public void PopulateListBox()
+		{
+			MenuItems.Items.Clear();
+			foreach (var person in repository.Description)
+			{
+				MenuItems.Items.Add(person);
+			}
+		}
+
 		private void MenuItems_SelectedIndexChanged(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		private void label1_Click(object sender, EventArgs e)

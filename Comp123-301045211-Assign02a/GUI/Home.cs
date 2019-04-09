@@ -16,8 +16,6 @@ namespace CoffeShop.GUI
 		public Customer selectCust;
 		public List<Customer> Customers = new List<Customer>();
 		public CustomerRepository repository = new CustomerRepository();
-		Customer person;
-		String custName;
 
 		public Home()
 		{
@@ -62,11 +60,6 @@ namespace CoffeShop.GUI
 
 		private void listCustomers_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			/*person = Customers.FirstOrDefault(
-				tPerson =>
-					tPerson.Name == (listCustomers.SelectedItem as Customer).Name
-				);
-			custName = person.Name;*/
 		}
 
 		private void listDisplay_SelectedIndexChanged(object sender, EventArgs e)

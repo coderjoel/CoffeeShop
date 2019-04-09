@@ -11,15 +11,16 @@ using MenuItem = CoffeeShopClassLibrary.MenuItem;
 
 namespace CoffeShop
 {
-	class Program
+	class Program : Form
 	{
 		static void Main(string[] args)
 		{
+			
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new Home());
 
-			#region Customers 
+			
 			CustomerRepository repository = new CustomerRepository();
 			Address address1;
 
@@ -40,7 +41,7 @@ namespace CoffeShop
 			repository.Add(customer3);
 			repository.Add(internalCustomer);
 
-			titleMeessage("CUSTOMERS");
+			/*titleMeessage("CUSTOMERS");
 			Console.WriteLine(customer1);
 			Console.WriteLine(customer2);
 			Console.WriteLine(customer3);
@@ -130,7 +131,7 @@ namespace CoffeShop
 				Console.WriteLine(customer);
 			}
 			Console.ReadKey();
-			#endregion
+			#endregion*/
 		}
 
 		private static void setMenuItems(IMenuItem[] menuItems)
