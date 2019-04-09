@@ -31,24 +31,21 @@ namespace CoffeShop.GUI
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
-			String customerName = txtName.Text;
+			//String customerName = txtName.Text;
 			Customer editableCustomer;
 			foreach (var customer in home1.repository.Customers)
 			{
-				if (customerName == customer.Name)
-				{
-					editableCustomer = customer;
-					editableCustomer.Name = txtName.Text;
-					(editableCustomer.Phone).ToString() = txtPhone.Text;
-					editableCustomer.Address.Street = txtStreet.Text;
-					txtCity.Text = editableCustomer.Address.City;
-					txtProvince.Text = editableCustomer.Address.Province;
-					txtPostal.Text = editableCustomer.Address.PostalCode;
-				}
-				else
-				{
-
-				}
+				editableCustomer = customer;
+				editableCustomer.Name = txtName.Text;
+				editableCustomer.Phone = Convert.ToInt64(txtPhone.Text);
+				Address Address1;
+				Address1.Street = txtStreet.Text;
+				Address1.City = txtCity.Text;
+				Address1.Province = txtProvince.Text;
+				Address1.PostalCode = txtPostal.Text;
+				editableCustomer.Address = Address1;
+				home1.PopulateListBox();
+				this.Close();
 			}
 		}
 	}
