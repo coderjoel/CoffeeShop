@@ -14,57 +14,42 @@ namespace CoffeShop.GUI
 	public partial class Edit : Form
 	{
 		Customer editableCustomer;
-		Home home;
+		Home home1;
 
-		public Edit(Customer customer)
+		public Edit(Home home, Customer customer)
 		{
 			InitializeComponent();
-			editableCustomer = customer;
-			Customer selectCustomer;
-			foreach (var cust in home.repository.Customers)
+			home1 = home;
+			this.editableCustomer = customer;
+			txtName.Text = customer.Name;
+			txtStreet.Text = customer.Address.Street.ToString();
+			txtCity.Text = customer.Address.City.ToString();
+			txtProvince.Text = customer.Address.Province.ToString();
+			txtPostal.Text = customer.Address.PostalCode.ToString();
+			txtPhone.Text = customer.Phone.ToString();
+		}
+
+		private void btnEdit_Click(object sender, EventArgs e)
+		{
+			String customerName = txtName.Text;
+			Customer editableCustomer;
+			foreach (var customer in home1.repository.Customers)
 			{
-				if (editableCustomer == cust.IdNumber)
+				if (customerName == customer.Name)
 				{
-					selectCustomer = cust;
-					txtName.Text = selectCustomer.Name;
-					txtStreet.Text = selectCustomer.Address.Street.ToString();
-					txtCity.Text = selectCustomer.Address.City.ToString();
-					txtProvince.Text = selectCustomer.Address.Province.ToString();
-					txtPostal.Text = selectCustomer.Address.PostalCode.ToString();
-					txtPhone.Text = selectCustomer.Phone.ToString();
+					editableCustomer = customer;
+					editableCustomer.Name = txtName.Text;
+					(editableCustomer.Phone).ToString() = txtPhone.Text;
+					editableCustomer.Address.Street = txtStreet.Text;
+					txtCity.Text = editableCustomer.Address.City;
+					txtProvince.Text = editableCustomer.Address.Province;
+					txtPostal.Text = editableCustomer.Address.PostalCode;
 				}
 				else
 				{
 
 				}
 			}
-
-
-		}
-
-		private void btnEdit_Click(object sender, EventArgs e)
-		{
-			/*Home = form;
-			
-			int customerID = ( as Customer).IdNumber;
-			Customer selectedCustomer;
-			foreach (var customer in Home.repository.Customers)
-			{
-				if (customerID == customer.IdNumber)
-				{
-					selectedCustomer = customer;
-					txtName.Text = selectedCustomer.Name;
-					txtPhone.Text = (selectedCustomer.Phone).ToString();
-					txtStreet.Text = selectedCustomer.Address.Street;
-					txtCity.Text = selectedCustomer.Address.City;
-					txtProvince.Text = selectedCustomer.Address.Province;
-					txtPostal.Text = selectedCustomer.Address.PostalCode;
-				}
-				else
-				{
-
-				}
-			}*/
 		}
 	}
 }

@@ -13,6 +13,7 @@ namespace CoffeShop.GUI
 {
 	public partial class Home : Form
 	{
+		public Customer selectCust;
 		public List<Customer> Customers = new List<Customer>();
 		public CustomerRepository repository = new CustomerRepository();
 		Customer person;
@@ -45,7 +46,6 @@ namespace CoffeShop.GUI
 		{
 			AddOrder form = new AddOrder();
 			form.Show();
-			this.Hide();
 		}
 
 		private void button5_Click(object sender, EventArgs e)
@@ -55,21 +55,18 @@ namespace CoffeShop.GUI
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
-			person = Customers.FirstOrDefault(
-				tPerson =>
-					tPerson.IdNumber == (listCustomers.SelectedItem as Customer).IdNumber
-				);
-			Edit form = new Edit(person);
-			form.Show();
+			selectCust = listCustomers.SelectedItem as Customer;
+			Edit edit = new Edit(this, selectCust);
+			edit.Show();
 		}
 
 		private void listCustomers_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			person = Customers.FirstOrDefault(
+			/*person = Customers.FirstOrDefault(
 				tPerson =>
 					tPerson.Name == (listCustomers.SelectedItem as Customer).Name
 				);
-			custName = person.Name;
+			custName = person.Name;*/
 		}
 
 		private void listDisplay_SelectedIndexChanged(object sender, EventArgs e)
